@@ -26,7 +26,7 @@ body{font-family:'Poppins',sans-serif;background:radial-gradient(1200px 600px at
 .desc{max-width:640px;margin:8px auto 16px;color:var(--muted)}
 .insta{color:#fff;text-decoration:none;background:linear-gradient(135deg,var(--primary),var(--secondary));padding:10px 14px;border-radius:999px;display:inline-block}
 
-.insta img{vertical-align:middle;margin-right:8px;width:18px;height:18px;object-fit:contain}
+.insta img{vertical-align:middle;margin-right:8px;width:24px;height:24px;object-fit:contain}
 .site-footer{border-top:1px solid var(--border);padding:16px 0;margin-top:40px;color:var(--muted);background:#0f0f15}
 .py{padding:28px 0}
 .page-title{margin:6px 0 16px 0}
