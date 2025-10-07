@@ -10,6 +10,7 @@ body{font-family:'Poppins',sans-serif;background:radial-gradient(1200px 600px at
 .brand{display:flex;align-items:center;gap:8px;font-weight:700}
 .brand img{width:28px;height:28px}
 .nav-toggle{display:none;background:transparent;border:0;color:var(--text);font-size:22px}
+.nav-label{font-size:14px;margin-left:6px;vertical-align:middle}
 .menu{display:flex;gap:16px;align-items:center}
 .menu a,.menu button{color:var(--text);text-decoration:none;background:transparent;border:0;font:inherit;padding:8px 10px;border-radius:8px}
 .menu a.active,.menu button.active{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff}
@@ -62,6 +63,7 @@ body{font-family:'Poppins',sans-serif;background:radial-gradient(1200px 600px at
   .menu{position:fixed;inset:56px 0 auto 0;background:rgba(21,21,33,.95);border-bottom:1px solid var(--border);padding:12px;display:none;flex-direction:column}
   .menu.open{display:flex}
   .nav-toggle{display:inline-block}
+  .nav-label{display:inline}
   .menu-dropdown{width:100%}
   .menu-dropdown .submenu{position:static;display:none;margin:6px 0 8px 10px;padding:6px 8px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid var(--border)}
   .menu-dropdown.open .submenu{display:block}

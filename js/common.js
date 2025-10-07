@@ -9,7 +9,7 @@
   <img src="contents/Logo.jpeg" alt="Logo" onerror="this.src='contents/WhatsApp Image 2025-10-05 at 1.25.43 PM.jpeg'">
         <span>Charge Up</span>
       </div>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">☰</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">☰ <span class="nav-label">Menu</span></button>
       <nav class="menu" id="mainMenu">
         <a href="index.html">Home</a>
         <a href="stickers.html">Stickers</a>
