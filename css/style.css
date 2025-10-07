@@ -24,9 +24,9 @@ body{font-family:'Poppins',sans-serif;background:radial-gradient(1200px 600px at
 .logo-text{font-size:clamp(40px,8vw,86px);margin:0;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;letter-spacing:.5px}
 .hero-logo{width:140px;height:140px;margin:16px auto;border-radius:50%;object-fit:cover;display:block;box-shadow:0 6px 18px rgba(0,0,0,.35);border:2px solid rgba(255,255,255,.1)}
 .desc{max-width:640px;margin:8px auto 16px;color:var(--muted)}
-.insta{color:#fff;text-decoration:none;background:linear-gradient(135deg,var(--primary),var(--secondary));padding:10px 14px;border-radius:999px;display:inline-block}
+.insta{color:#fff;text-decoration:none;background:linear-gradient(135deg,var(--primary),var(--secondary));padding:10px 14px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
 
-.insta img{vertical-align:middle;margin-right:8px;width:24px;height:24px;object-fit:contain}
+.insta img{vertical-align:middle;width:28px;height:28px;object-fit:contain}
 .site-footer{border-top:1px solid var(--border);padding:16px 0;margin-top:40px;color:var(--muted);background:#0f0f15}
 .py{padding:28px 0}
 .page-title{margin:6px 0 16px 0}
@@ -68,6 +68,12 @@ body{font-family:'Poppins',sans-serif;background:radial-gradient(1200px 600px at
   .menu-dropdown .submenu{position:static;display:none;margin:6px 0 8px 10px;padding:6px 8px;background:rgba(255,255,255,.03);border-radius:8px;border:1px solid var(--border)}
   .menu-dropdown.open .submenu{display:block}
   .menu a,.menu button{width:100%;text-align:left}
+}
+
+/* Ensure desktop hover works even after mobile overrides */
+@media(min-width:841px){
+  .menu-dropdown .submenu{position:absolute;display:none}
+  .menu-dropdown:hover .submenu{display:block}
 }
 
 
