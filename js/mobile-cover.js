@@ -1,6 +1,9 @@
 // Mobile Cover Gallery - Dynamic version that scans actual files
 (function(){
   console.log('Mobile cover script starting...');
+  console.log('User agent:', navigator.userAgent);
+  console.log('Screen size:', window.innerWidth + 'x' + window.innerHeight);
+  
   const grid = document.getElementById('coversGrid');
   if (!grid) {
     console.error('coversGrid element not found!');
@@ -314,8 +317,11 @@
     grid.innerHTML = '';
     const list = filter === 'all' ? withNumbers : withNumbers.filter(it => it.category === filter);
     console.log('Items to render:', list.length);
+    console.log('Grid element after setting class:', grid.className);
+    console.log('Grid computed style:', window.getComputedStyle(grid).display);
     
-    list.forEach(it => {
+    list.forEach((it, index) => {
+      console.log(`Creating card ${index + 1} for:`, it.name);
       const card = document.createElement('div');
       card.className = 'card';
       const img = document.createElement('img');
@@ -324,6 +330,9 @@
       img.src = buildSrc(it.dir, it.name);
       img.alt = `${it.category} #${it.n}`;
       img.style.cursor = 'pointer';
+      img.onload = function() {
+        console.log(`Image loaded successfully: ${it.name}`);
+      };
       img.onerror = function(){ 
         console.error('Failed to load image:', img.src);
         img.style.display = 'none'; 
@@ -364,8 +373,18 @@
   // Render immediately
   try {
     console.log('About to render gallery...');
+    // Ensure grid is visible
+    grid.style.display = 'grid';
+    grid.style.visibility = 'visible';
+    grid.style.opacity = '1';
     render();
     console.log('Gallery render completed');
+    
+    // Force a reflow to ensure rendering
+    setTimeout(() => {
+      console.log('Final grid children count:', grid.children.length);
+      console.log('Final grid computed style:', window.getComputedStyle(grid).display);
+    }, 100);
   } catch (err){
     console.error('Failed to render covers grid', err);
     grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #ff6b6b;">Error loading gallery. Please refresh.</div>';
