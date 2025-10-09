@@ -6,9 +6,6 @@
     { "source": "/laptop-skins", "destination": "/laptop-skins.html" },
     { "source": "/stickers", "destination": "/stickers.html" }
   ],
-  "redirects": [
-    { "source": "/", "destination": "/index.html" }
-  ],
   "headers": [
     {
       "source": "/js/(.*)",
