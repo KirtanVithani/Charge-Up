@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/mobile-cover", "destination": "/mobile-cover.html" }
+  ],
   "headers": [
     {
       "source": "/js/(.*)",
