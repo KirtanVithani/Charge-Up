@@ -278,8 +278,8 @@
   }
 
   function buildSrc(dir, name){
-    // Use root-relative URLs so assets load on nested routes like /mobile-cover
-    return `/${encodePath(dir)}/${encodeURIComponent(name)}`;
+    // Use relative URLs for local development
+    return `${encodePath(dir)}/${encodeURIComponent(name)}`;
   }
 
   function showLightbox(src, alt) {
@@ -409,10 +409,10 @@
   }
 
   // Add one simple, ASCII-only test asset to ensure visibility on deploys
-  manifest.push({ dir: '/contents', name: 'images.jpeg', category: 'others' });
+  manifest.push({ dir: 'contents', name: 'images.jpeg', category: 'others' });
   
   // Add a guaranteed working test image
-  manifest.push({ dir: '/contents', name: 'Logo.jpeg', category: 'others' });
+  manifest.push({ dir: 'contents', name: 'Logo.jpeg', category: 'others' });
 
   window.addEventListener('hashchange', () => {
     try { render(); } catch (err) { console.error(err); }
@@ -425,7 +425,7 @@
   testCard.style.padding = '20px';
   
   const testImg = document.createElement('img');
-  testImg.src = '/contents/Logo.jpeg';
+  testImg.src = 'contents/Logo.jpeg';
   testImg.alt = 'Test Logo';
   testImg.style.maxWidth = '200px';
   testImg.style.height = 'auto';
