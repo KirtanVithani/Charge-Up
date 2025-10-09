@@ -98,7 +98,7 @@
     '_A futuristic sports motorcycle in a cyberpunk….jpeg'
   ]);
 
-  // Anime and Cartoon
+  // Anime and Cartoon - Complete list
   addMany('anime','contents/Phone Cover/Anime and Cartoon', [
     '#anime #japan #narutoshippuden #pain #yahiko….jpeg',
     '#Gengar #Pokémon #wallpaper #pokemon.jpeg',
@@ -130,17 +130,26 @@
     'b5bcdbc7-6ad1-4b23-9077-e9595a0816a1.jpeg',
     'b5cb25e0-71bc-46d5-86b1-2e011b141abb.jpeg',
     'b6717512-efec-434f-9213-8b5ecac07076.jpeg',
+    'Cartoon Wallpaper Aesthetics….jpeg',
     'cd5c4f41-7347-4b78-8df2-042b380322f1.jpeg',
     'dc192649-af40-409a-b021-97e0d93c27b2.jpeg',
+    'Discover the beauty of Pokemon official art! From….jpeg',
+    'DM FOR COLLABORATION.jpeg',
+    'Download our latest and FULL SIZE Dragon Ball….jpeg',
     'ebc43bae-35f3-46f1-a62f-138114e65405.jpeg',
     'f2b53593-aecd-475e-bff2-18d59e32ee45.jpeg',
     'f4fe45a0-385d-42b3-a228-622378d7cc55.jpeg',
     'f806483c-9d4f-4e45-a806-27c3f54186b7.jpeg',
     'fdce5bec-9447-4053-80d2-35c369b4da34.jpeg',
-    'Kamado Tanjiro Sun Hashira.jpeg'
+    'Kamado Tanjiro Sun Hashira.jpeg',
+    'Naruto Wallpaper 4K, Naruto Uzumaki #naruto….jpeg',
+    'Pokémon legends arceus God 🏔️ wallpaper 4K….jpeg',
+    'Poplar Anime Characters in Peace _ _  🧠 AI….jpeg',
+    'Step into the storm with this electrifying anime… (1).jpeg',
+    'Step into the storm with this electrifying anime….jpeg'
   ]);
 
-  // Marvel
+  // Marvel - Complete list
   addMany('marvel','contents/Phone Cover/Marvel', [
     '#spiderman #marvel #hollywood.jpeg',
     '#thor #marvel #disney #wallpaper….jpeg',
@@ -152,6 +161,7 @@
     '8c892997-31f8-42a4-b17e-2d3656c86ee0.jpeg',
     '8fcf812d-d998-400c-9778-2c6cc6162fd0.jpeg',
     '95e16046-1f61-4715-82b0-6ebb274705ac.jpeg',
+    'Amazing wallpaper of baby captain America….jpeg',
     'bca9775c-532c-4aa2-bcb3-bf0ea35529a1.jpeg',
     'c234aee7-81c8-4a78-b350-8d53f340b6d6.jpeg',
     'c5433a32-563f-4c54-9b4a-e8034e4114ce.jpeg',
@@ -161,12 +171,15 @@
     'eb83b4de-3783-45e5-b201-5b982a682dc5.jpeg',
     'ef58ac1e-ebfd-4033-8252-c01e2d54125f.jpeg',
     'Instagram.jpeg',
+    'Lo puedes usar como wallpaper de un celular o….jpeg',
     'MARVEL 4K WALLPAPERS AND DP - IRONMAN (1).jpeg',
-    'Spider-Man Wallpaper #spiderman #marvel #wallpaper.jpeg'
+    'Spider-Man Wallpaper #spiderman #marvel #wallpaper.jpeg',
+    'Thor y su martillo, personaje de Marvel Comics….jpeg'
   ]);
 
-  // Natural
+  // Natural - Complete list
   addMany('natural','contents/Phone Cover/Natural', [
+    '#manga #anime #comic #cartoonm #wallpaper….jpeg',
     '065bdd5a-e753-440f-b5a1-522b169aea8d.jpeg',
     '1810954b-1d37-474a-891a-c9b53d663488.jpeg',
     '2107d986-525b-4a56-a7af-181c69879878.jpeg',
@@ -183,21 +196,33 @@
     '6f315c99-8303-4c32-8ec5-8c7a8f204100.jpeg',
     '78e94cf6-1db6-4b6d-a2a4-b8d1d1b3e226.jpeg',
     '88673196-4db5-4306-b785-52219c33ccfb.jpeg',
+    'A serene bonsai tree grows on rocks, showcasing….jpeg',
     'a9ef2ddb-abef-4441-aef4-198a55ff6229.jpeg',
     'ada3e361-a546-48e0-8b79-8e38d9ec00db.jpeg',
     'b0c63775-9013-451a-ac82-b4d52e5413d3.jpeg',
     'b1bd8bc7-0393-4a5d-9d34-155c412d1bda.jpeg',
+    'Bright Exotic Bird In a Tropical Garden Sunlight….jpeg',
     'ca62ab15-019a-49ef-84d4-5111e3ab7759.jpeg',
     'cece1b66-2b10-4dc7-8179-4d12c968d3e5.jpeg',
     'db5eaf8f-e3a6-47b3-900c-d0afba671ebc.jpeg',
     'e023ac25-7b2f-4cf0-be64-15f25a9e7619.jpeg',
     'e0d850fe-5f8d-48c3-814e-459fb5154895.jpeg',
     'e87ef41d-4ae9-44b5-9487-e1be65ed21f4.jpeg',
-    'e9af4435-fb80-44da-8c70-72c19dd22b2e.jpeg'
+    'e9af4435-fb80-44da-8c70-72c19dd22b2e.jpeg',
+    'Eagle flying wildlife animal nature_ _ premium….jpeg',
+    'Give your device a magical makeover with our….jpeg',
+    'Looking to update your phone for the season_….jpeg',
+    'Nature\'s raw power captured! ⚡️ Witness the storm….jpeg',
+    'Pin by John Emery on My Dream Place♥️ _ Landscape….jpeg',
+    'Pin by Tudy on Pittura _ Cute fall wallpaper, Cute….jpeg',
+    'Product Description_ Indulge in the allure of the….jpeg'
   ]);
 
-  // Spiritual
+  // Spiritual - Complete list
   addMany('spiritual','contents/Phone Cover/Spiritual', [
+    '_Divine Melody in the Heart of Nature_ Bathed in….jpeg',
+    '☝☝☝ Download our aesthetic and high quality Buda… (1).jpeg',
+    '☝☝☝ Download our aesthetic and high quality Buda….jpeg',
     '0b109c3a-6efc-46bc-a459-b0528b0b9d78.jpeg',
     '35b6510d-1c37-4990-9940-44201c576e2d.jpeg',
     '5cffce77-5ecf-4694-b8a0-e9f2a4ff3ab6.jpeg',
@@ -214,10 +239,20 @@
     'c8f3f495-303a-4e9f-867e-d5b77c7647d7.jpeg',
     'd03e8086-035a-473d-a9b1-9fa297356db9.jpeg',
     'd25b0293-eb02-4777-9ad2-8ebbca746176.jpeg',
+    'Discover the mystical resonance of Om chanting….jpeg',
+    'Discover tranquility with a breathtaking statue….jpeg',
     'e5a293a2-a705-4f33-9b9d-c53dc78789c2.jpeg',
     'e60baf42-e7fc-4a82-9d28-df9517405037.jpeg',
     'e94e8651-54fe-43eb-953f-6a6a770fef45.jpeg',
-    'Mahadev, Shivling, Shivling In Water.jpeg'
+    'Experience the profound beauty of mindfulness in….jpeg',
+    'Explore divine Shiva wallpaper to inspire peace….jpeg',
+    'lord Rama is an unparalleled warrior, possessing….jpeg',
+    'Mahadev, Shivling, Shivling In Water.jpeg',
+    'Pinterest Image Title_ _Divine Power of Lord….jpeg',
+    'Radha Krishna wallpaper, Radha krishna sitting on….jpeg',
+    'save for later   #shiva #mahadev #bholenath….jpeg',
+    'The golden mandala  represents the flow of….jpeg',
+    'The Trishul of Lord Shiva – a symbol of….jpeg'
   ]);
 
   // Movies and Others
