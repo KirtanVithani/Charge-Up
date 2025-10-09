@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Mobile Cover - Charge Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .debug-info {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div data-include="navbar"></div>
+    <main class="container py">
+        <h1 class="page-title">Simple Mobile Cover Test</h1>
+        <div class="debug-info" id="debugInfo">Loading...</div>
+        <div id="coversGrid" class="grid" style="border: 2px solid red; min-height: 300px;"></div>
+    </main>
+    <footer class="site-footer"><div class="container">© <span id="yr"></span> Charge Up</div></footer>
+    
+    <script src="js/common.js"></script>
+    <script>
+        document.getElementById('yr').textContent = new Date().getFullYear();
+        
+        const debugInfo = document.getElementById('debugInfo');
+        const grid = document.getElementById('coversGrid');
+        
+        debugInfo.innerHTML = `
+            <div><strong>User Agent:</strong> ${navigator.userAgent}</div>
+            <div><strong>Screen Size:</strong> ${window.innerWidth} x ${window.innerHeight}</div>
+            <div><strong>Grid Element Found:</strong> ${grid ? 'Yes' : 'No'}</div>
+            <div><strong>Grid Class:</strong> ${grid ? grid.className : 'N/A'}</div>
+        `;
+
+        // Simple test with a few images
+        const testImages = [
+            { src: 'contents/Phone Cover/Cars and Bikes/Audi R8.jpeg', category: 'Cars and Bikes' },
+            { src: 'contents/Phone Cover/Anime and Cartoon/Kamado Tanjiro Sun Hashira.jpeg', category: 'Anime' },
+            { src: 'contents/Phone Cover/Marvel/Instagram.jpeg', category: 'Marvel' },
+            { src: 'contents/Phone Cover/Natural/065bdd5a-e753-440f-b5a1-522b169aea8d.jpeg', category: 'Natural' },
+            { src: 'contents/Phone Cover/Spiritual/Mahadev, Shivling, Shivling In Water.jpeg', category: 'Spiritual' },
+            { src: 'contents/Phone Cover/Movies and Others/John Wick.jpg', category: 'Movies' }
+        ];
+
+        function createSimpleGallery() {
+            console.log('Creating simple gallery...');
+            grid.innerHTML = '';
+            
+            testImages.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.style.background = `hsl(${index * 60}, 50%, 60%)`;
+                
+                const img = document.createElement('img');
+                img.className = 'thumb';
+                img.src = item.src;
+                img.alt = `${item.category} ${index + 1}`;
+                img.style.border = '2px solid blue';
+                
+                img.onload = function() {
+                    console.log(`Image ${index + 1} loaded: ${item.src}`);
+                    debugInfo.innerHTML += `<div style="color: green;">✅ Image ${index + 1} loaded: ${item.category}</div>`;
+                };
+                
+                img.onerror = function() {
+                    console.error(`Image ${index + 1} failed: ${item.src}`);
+                    debugInfo.innerHTML += `<div style="color: red;">❌ Image ${index + 1} failed: ${item.category}</div>`;
+                };
+                
+                const meta = document.createElement('div');
+                meta.className = 'meta';
+                meta.innerHTML = `<span class="badge">#${index + 1}</span><span>${item.category}</span>`;
+                
+                card.appendChild(img);
+                card.appendChild(meta);
+                grid.appendChild(card);
+            });
+            
+            console.log('Simple gallery created with', grid.children.length, 'children');
+            debugInfo.innerHTML += `<div><strong>Grid children count:</strong> ${grid.children.length}</div>`;
+            debugInfo.innerHTML += `<div><strong>Grid computed style:</strong> ${window.getComputedStyle(grid).display}</div>`;
+        }
+
+        // Initialize after DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', createSimpleGallery);
+        } else {
+            createSimpleGallery();
+        }
+    </script>
+</body>
+</html>

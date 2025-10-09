@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Debug Desktop - Charge Up</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .debug-panel {
+            background: #f0f0f0;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            border: 2px solid #007bff;
+        }
+        .test-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid #28a745;
+            margin: 5px;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div data-include="navbar"></div>
+    <main class="container py">
+        <h1 class="page-title">Desktop Debug Test</h1>
+        
+        <div class="debug-panel" id="debugInfo">
+            <h3>Debug Information:</h3>
+            <div id="debugContent">Loading...</div>
+        </div>
+
+        <h2>Direct Image Test:</h2>
+        <div id="directImages"></div>
+
+        <h2>Grid Test:</h2>
+        <div id="testGrid" class="grid" style="border: 2px solid red; min-height: 200px;">
+            <div class="card" style="background: yellow;">
+                <img class="thumb" src="contents/Phone Cover/Cars and Bikes/Audi R8.jpeg" alt="Test 1" style="border: 2px solid blue;">
+                <div class="meta">
+                    <span class="badge">#1</span>
+                    <span>Test Card</span>
+                </div>
+            </div>
+        </div>
+
+        <h2>JavaScript Generated Grid:</h2>
+        <div id="jsGrid" class="grid"></div>
+    </main>
+    
+    <footer class="site-footer"><div class="container">© <span id="yr"></span> Charge Up</div></footer>
+    
+    <script src="js/common.js"></script>
+    <script>
+        const debugContent = document.getElementById('debugContent');
+        const directImages = document.getElementById('directImages');
+        const jsGrid = document.getElementById('jsGrid');
+        
+        // Debug information
+        debugContent.innerHTML = `
+            <div><strong>User Agent:</strong> ${navigator.userAgent}</div>
+            <div><strong>Screen Size:</strong> ${window.innerWidth} x ${window.innerHeight}</div>
+            <div><strong>Device Pixel Ratio:</strong> ${window.devicePixelRatio}</div>
+            <div><strong>Viewport:</strong> ${document.documentElement.clientWidth} x ${document.documentElement.clientHeight}</div>
+            <div><strong>CSS Grid Support:</strong> ${CSS.supports('display', 'grid')}</div>
+            <div><strong>Current Time:</strong> ${new Date().toLocaleString()}</div>
+        `;
+
+        // Test direct image loading
+        const testImages = [
+            'contents/Phone Cover/Cars and Bikes/Audi R8.jpeg',
+            'contents/Phone Cover/Anime and Cartoon/Kamado Tanjiro Sun Hashira.jpeg',
+            'contents/Phone Cover/Marvel/Instagram.jpeg'
+        ];
+
+        testImages.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.className = 'test-image';
+            img.src = src;
+            img.alt = `Test ${index + 1}`;
+            
+            img.onload = function() {
+                debugContent.innerHTML += `<div class="success">✅ Direct image ${index + 1} loaded: ${src}</div>`;
+            };
+            
+            img.onerror = function() {
+                debugContent.innerHTML += `<div class="error">❌ Direct image ${index + 1} failed: ${src}</div>`;
+            };
+            
+            directImages.appendChild(img);
+        });
+
+        // Test JavaScript grid generation
+        function createTestGrid() {
+            console.log('Creating test grid...');
+            jsGrid.innerHTML = '';
+            
+            for (let i = 0; i < 6; i++) {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.style.background = `hsl(${i * 60}, 70%, 50%)`;
+                
+                const img = document.createElement('img');
+                img.className = 'thumb';
+                img.src = testImages[i % testImages.length];
+                img.alt = `JS Test ${i + 1}`;
+                img.style.border = '2px solid green';
+                
+                img.onload = function() {
+                    console.log(`JS image ${i + 1} loaded successfully`);
+                    debugContent.innerHTML += `<div class="success">✅ JS image ${i + 1} loaded</div>`;
+                };
+                
+                img.onerror = function() {
+                    console.error(`JS image ${i + 1} failed to load`);
+                    debugContent.innerHTML += `<div class="error">❌ JS image ${i + 1} failed</div>`;
+                };
+                
+                const meta = document.createElement('div');
+                meta.className = 'meta';
+                meta.innerHTML = `<span class="badge">#${i + 1}</span><span>JS Test ${i + 1}</span>`;
+                
+                card.appendChild(img);
+                card.appendChild(meta);
+                jsGrid.appendChild(card);
+            }
+            
+            console.log('Test grid created with', jsGrid.children.length, 'children');
+            debugContent.innerHTML += `<div><strong>JS Grid children:</strong> ${jsGrid.children.length}</div>`;
+            debugContent.innerHTML += `<div><strong>JS Grid computed style:</strong> ${window.getComputedStyle(jsGrid).display}</div>`;
+        }
+
+        // Run tests
+        setTimeout(createTestGrid, 1000);
+        
+        // Test mobile cover script
+        setTimeout(() => {
+            debugContent.innerHTML += `<div><strong>Testing mobile cover script...</strong></div>`;
+            try {
+                // Simulate the mobile cover script
+                const testGrid = document.createElement('div');
+                testGrid.id = 'coversGrid';
+                testGrid.className = 'grid';
+                testGrid.style.border = '2px solid purple';
+                testGrid.style.minHeight = '200px';
+                
+                const testCard = document.createElement('div');
+                testCard.className = 'card';
+                testCard.style.background = 'orange';
+                
+                const testImg = document.createElement('img');
+                testImg.className = 'thumb';
+                testImg.src = 'contents/Phone Cover/Cars and Bikes/Audi R8.jpeg';
+                testImg.alt = 'Mobile Cover Test';
+                
+                testImg.onload = function() {
+                    debugContent.innerHTML += `<div class="success">✅ Mobile cover test image loaded</div>`;
+                };
+                
+                testImg.onerror = function() {
+                    debugContent.innerHTML += `<div class="error">❌ Mobile cover test image failed</div>`;
+                };
+                
+                testCard.appendChild(testImg);
+                testGrid.appendChild(testCard);
+                
+                document.body.appendChild(testGrid);
+                debugContent.innerHTML += `<div><strong>Mobile cover test grid added to page</strong></div>`;
+                
+            } catch (err) {
+                debugContent.innerHTML += `<div class="error">❌ Mobile cover test error: ${err.message}</div>`;
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

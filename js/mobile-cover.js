@@ -405,23 +405,38 @@
     try { render(); } catch (err) { console.error(err); }
   });
   
-  // Render immediately
-  try {
-    console.log('About to render gallery...');
-    // Ensure grid is visible
-    grid.style.display = 'grid';
-    grid.style.visibility = 'visible';
-    grid.style.opacity = '1';
-    render();
-    console.log('Gallery render completed');
-    
-    // Force a reflow to ensure rendering
-    setTimeout(() => {
-      console.log('Final grid children count:', grid.children.length);
-      console.log('Final grid computed style:', window.getComputedStyle(grid).display);
-    }, 100);
-  } catch (err){
-    console.error('Failed to render covers grid', err);
-    grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #ff6b6b;">Error loading gallery. Please refresh.</div>';
+  // Wait for DOM to be fully loaded
+  function initializeGallery() {
+    try {
+      console.log('About to render gallery...');
+      // Ensure grid is visible
+      grid.style.display = 'grid';
+      grid.style.visibility = 'visible';
+      grid.style.opacity = '1';
+      grid.style.minHeight = '200px';
+      render();
+      console.log('Gallery render completed');
+      
+      // Force a reflow to ensure rendering
+      setTimeout(() => {
+        console.log('Final grid children count:', grid.children.length);
+        console.log('Final grid computed style:', window.getComputedStyle(grid).display);
+        console.log('Grid parent element:', grid.parentElement);
+        console.log('Grid is visible:', grid.offsetWidth > 0 && grid.offsetHeight > 0);
+      }, 100);
+    } catch (err){
+      console.error('Failed to render covers grid', err);
+      grid.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 20px; color: #ff6b6b;">Error loading gallery. Please refresh.</div>';
+    }
   }
+
+  // Try multiple initialization methods
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeGallery);
+  } else {
+    initializeGallery();
+  }
+  
+  // Also try after a delay as fallback
+  setTimeout(initializeGallery, 500);
 })();
