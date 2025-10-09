@@ -320,8 +320,23 @@
     }
   }
 
-  window.addEventListener('hashchange', render);
-  render();
+  // Add one simple, ASCII-only test asset to ensure visibility on deploys
+  manifest.push({ dir: 'contents', name: 'images.jpeg', category: 'others' });
+
+  window.addEventListener('hashchange', () => {
+    try { render(); } catch (err) { console.error(err); }
+  });
+  try {
+    render();
+  } catch (err){
+    console.error('Failed to render covers grid', err);
+    grid.innerHTML = '';
+    const msg = document.createElement('div');
+    msg.style.gridColumn = '1 / -1';
+    msg.style.textAlign = 'center';
+    msg.textContent = 'Error loading gallery. Please refresh.';
+    grid.appendChild(msg);
+  }
 })();
 
 
