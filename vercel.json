@@ -2,7 +2,12 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/mobile-cover", "destination": "/mobile-cover.html" }
+    { "source": "/mobile-cover", "destination": "/mobile-cover.html" },
+    { "source": "/laptop-skins", "destination": "/laptop-skins.html" },
+    { "source": "/stickers", "destination": "/stickers.html" }
+  ],
+  "redirects": [
+    { "source": "/", "destination": "/index.html" }
   ],
   "headers": [
     {
