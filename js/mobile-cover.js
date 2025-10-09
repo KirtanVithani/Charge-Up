@@ -282,6 +282,75 @@
     return `/${encodePath(dir)}/${encodeURIComponent(name)}`;
   }
 
+  function showLightbox(src, alt) {
+    // Create lightbox overlay
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      cursor: pointer;
+    `;
+    
+    // Create image
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = alt;
+    img.style.cssText = `
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    `;
+    
+    // Create close button
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '×';
+    closeBtn.style.cssText = `
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      font-size: 30px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1001;
+    `;
+    
+    lightbox.appendChild(img);
+    lightbox.appendChild(closeBtn);
+    document.body.appendChild(lightbox);
+    
+    // Close on click
+    lightbox.onclick = function(e) {
+      if (e.target === lightbox || e.target === closeBtn) {
+        document.body.removeChild(lightbox);
+      }
+    };
+    
+    // Close on escape key
+    const handleKey = function(e) {
+      if (e.key === 'Escape') {
+        document.body.removeChild(lightbox);
+        document.removeEventListener('keydown', handleKey);
+      }
+    };
+    document.addEventListener('keydown', handleKey);
+  }
+
   function readHash(){
     const h = (location.hash || '').replace('#','').trim().toLowerCase();
     const valid = categories.find(c => c.key === h);
@@ -299,14 +368,18 @@
     list.forEach(it => {
       const card = document.createElement('div');
       card.className = 'card';
-    const img = document.createElement('img');
+      const img = document.createElement('img');
       img.className = 'thumb';
       img.loading = 'lazy';
       img.src = buildSrc(it.dir, it.name);
       img.alt = `${it.category} #${it.n}`;
-    img.onerror = function(){
+      img.style.cursor = 'pointer';
+      img.onerror = function(){ 
         console.error('Failed to load image:', img.src);
-        img.style.display = 'none';
+        img.style.display = 'none'; 
+      };
+      img.onclick = function() {
+        showLightbox(img.src, img.alt);
       };
     const meta = document.createElement('div');
     meta.className = 'meta';
