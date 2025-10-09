@@ -304,7 +304,10 @@
       img.loading = 'lazy';
       img.src = buildSrc(it.dir, it.name);
       img.alt = `${it.category} #${it.n}`;
-      img.onerror = function(){ img.style.display = 'none'; };
+      img.onerror = function(){ 
+        console.error('Failed to load image:', img.src);
+        img.style.display = 'none'; 
+      };
       const meta = document.createElement('div');
       meta.className = 'meta';
       const left = document.createElement('span');
@@ -334,6 +337,9 @@
 
   // Add one simple, ASCII-only test asset to ensure visibility on deploys
   manifest.push({ dir: '/contents', name: 'images.jpeg', category: 'others' });
+  
+  // Add a guaranteed working test image
+  manifest.push({ dir: '/contents', name: 'Logo.jpeg', category: 'others' });
 
   window.addEventListener('hashchange', () => {
     try { render(); } catch (err) { console.error(err); }
