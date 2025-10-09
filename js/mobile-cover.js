@@ -1,8 +1,13 @@
 // Render two phone cover images with PDF links below, centered and stacked on mobile
 // Build gallery from Phone Cover folders with global numbering and category filters
 (function(){
+  console.log('Mobile cover script starting...');
   const grid = document.getElementById('coversGrid');
-  if (!grid) return;
+  if (!grid) {
+    console.error('coversGrid element not found!');
+    return;
+  }
+  console.log('Found coversGrid element');
 
   // Define categories and source directories
   const categories = [
@@ -284,10 +289,13 @@
   }
 
   function render(){
+    console.log('Render function called');
     const filter = readHash();
+    console.log('Filter:', filter);
     grid.className = 'grid';
-  grid.innerHTML = '';
+    grid.innerHTML = '';
     const list = filter === 'all' ? withNumbers : withNumbers.filter(it => it.category === filter);
+    console.log('Items to render:', list.length);
     list.forEach(it => {
       const card = document.createElement('div');
       card.className = 'card';
@@ -331,18 +339,23 @@
     try { render(); } catch (err) { console.error(err); }
   });
   try {
+    console.log('About to render gallery...');
     render();
+    console.log('Gallery render completed');
   } catch (err){
     console.error('Failed to render covers grid', err);
     grid.innerHTML = '';
     const msg = document.createElement('div');
     msg.style.gridColumn = '1 / -1';
     msg.style.textAlign = 'center';
-    msg.textContent = 'Error loading gallery. Please refresh.';
+    msg.style.padding = '20px';
+    msg.style.color = '#ff6b6b';
+    msg.innerHTML = 'Error loading gallery. Please refresh.<br><small>Check console for details.</small>';
     grid.appendChild(msg);
   }
 })();
 
 
-/ /   F o r c e   r e d e p l o y   1 0 / 0 9 / 2 0 2 5   2 0 : 5 0 : 5 4  
+/ /   F o r c e   r e d e p l o y   1 0 / 0 9 / 2 0 2 5   2 0 : 5 0 : 5 4 
+ 
  
