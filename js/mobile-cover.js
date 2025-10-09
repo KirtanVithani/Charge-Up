@@ -293,7 +293,7 @@
     const filter = readHash();
     console.log('Filter:', filter);
     grid.className = 'grid';
-    grid.innerHTML = '';
+  grid.innerHTML = '';
     const list = filter === 'all' ? withNumbers : withNumbers.filter(it => it.category === filter);
     console.log('Items to render:', list.length);
     list.forEach(it => {
@@ -304,12 +304,12 @@
       img.loading = 'lazy';
       img.src = buildSrc(it.dir, it.name);
       img.alt = `${it.category} #${it.n}`;
-      img.onerror = function(){ 
+    img.onerror = function(){
         console.error('Failed to load image:', img.src);
-        img.style.display = 'none'; 
+        img.style.display = 'none';
       };
-      const meta = document.createElement('div');
-      meta.className = 'meta';
+    const meta = document.createElement('div');
+    meta.className = 'meta';
       const left = document.createElement('span');
       left.className = 'badge';
       left.textContent = `#${it.n}`;
@@ -344,21 +344,44 @@
   window.addEventListener('hashchange', () => {
     try { render(); } catch (err) { console.error(err); }
   });
-  try {
-    console.log('About to render gallery...');
-    render();
-    console.log('Gallery render completed');
-  } catch (err){
-    console.error('Failed to render covers grid', err);
-    grid.innerHTML = '';
-    const msg = document.createElement('div');
-    msg.style.gridColumn = '1 / -1';
-    msg.style.textAlign = 'center';
-    msg.style.padding = '20px';
-    msg.style.color = '#ff6b6b';
-    msg.innerHTML = 'Error loading gallery. Please refresh.<br><small>Check console for details.</small>';
-    grid.appendChild(msg);
-  }
+  // Simple fallback - show a basic test first
+  grid.innerHTML = '';
+  const testCard = document.createElement('div');
+  testCard.className = 'card';
+  testCard.style.textAlign = 'center';
+  testCard.style.padding = '20px';
+  
+  const testImg = document.createElement('img');
+  testImg.src = '/contents/Logo.jpeg';
+  testImg.alt = 'Test Logo';
+  testImg.style.maxWidth = '200px';
+  testImg.style.height = 'auto';
+  testImg.onload = function() {
+    console.log('Test image loaded successfully!');
+    // Now try the full gallery
+    try {
+      console.log('About to render gallery...');
+      render();
+      console.log('Gallery render completed');
+    } catch (err){
+      console.error('Failed to render covers grid', err);
+      grid.innerHTML = '';
+      const msg = document.createElement('div');
+      msg.style.gridColumn = '1 / -1';
+      msg.style.textAlign = 'center';
+      msg.style.padding = '20px';
+      msg.style.color = '#ff6b6b';
+      msg.innerHTML = 'Error loading gallery. Please refresh.<br><small>Check console for details.</small>';
+      grid.appendChild(msg);
+    }
+  };
+  testImg.onerror = function() {
+    console.error('Test image failed to load:', testImg.src);
+    testCard.innerHTML = '<p>Test image failed to load. Check if /contents/Logo.jpeg exists.</p>';
+  };
+  
+  testCard.appendChild(testImg);
+  grid.appendChild(testCard);
 })();
 
 
