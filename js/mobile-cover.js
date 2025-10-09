@@ -273,7 +273,8 @@
   }
 
   function buildSrc(dir, name){
-    return `${encodePath(dir)}/${encodeURIComponent(name)}`;
+    // Use root-relative URLs so assets load on nested routes like /mobile-cover
+    return `/${encodePath(dir)}/${encodeURIComponent(name)}`;
   }
 
   function readHash(){
