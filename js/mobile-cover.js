@@ -303,7 +303,11 @@
       left.className = 'badge';
       left.textContent = `#${it.n}`;
       const right = document.createElement('span');
-      right.textContent = categories.find(c => c.key === it.category)?.label || it.category;
+      var cat = null;
+      for (var i = 0; i < categories.length; i++) {
+        if (categories[i].key === it.category) { cat = categories[i]; break; }
+      }
+      right.textContent = (cat && cat.label) ? cat.label : it.category;
       meta.appendChild(left);
       meta.appendChild(right);
       card.appendChild(img);
