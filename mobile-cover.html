@@ -17,7 +17,20 @@
     </main>
     <footer class="site-footer"><div class="container">© <span id="yr"></span> Charge Up</div></footer>
     <script src="/js/common.js"></script>
-    <script src="/js/mobile-cover.js?v=4"></script>
+    <script>
+      console.log('Page loaded, about to load mobile-cover.js');
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM ready');
+        const grid = document.getElementById('coversGrid');
+        if (grid) {
+          console.log('Found coversGrid');
+          grid.innerHTML = '<div style="text-align:center;padding:20px;">Loading gallery...</div>';
+        } else {
+          console.error('coversGrid not found!');
+        }
+      });
+    </script>
+    <script src="/js/mobile-cover.js?v=5"></script>
 </body>
 </html>
 
