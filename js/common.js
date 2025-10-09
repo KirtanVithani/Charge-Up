@@ -28,8 +28,13 @@
         <div class="menu-dropdown">
           <button class="menu-parent">Mobile Cover ▾</button>
           <div class="submenu">
-            <a href="mobile-cover.html#template">Template</a>
-            <a href="mobile-cover.html#custom">Custom image</a>
+            <a href="mobile-cover.html">All</a>
+            <a href="mobile-cover.html#cars">1. Cars and Bikes</a>
+            <a href="mobile-cover.html#anime">2. Anime and Cartoon</a>
+            <a href="mobile-cover.html#marvel">3. Marvel</a>
+            <a href="mobile-cover.html#natural">4. Natural</a>
+            <a href="mobile-cover.html#spiritual">5. Spiritual</a>
+            <a href="mobile-cover.html#others">6. Movies and Others</a>
           </div>
         </div>
       </nav>
