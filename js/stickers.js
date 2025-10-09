@@ -4,7 +4,7 @@
   if (!grid) return;
   let list = [];
   try {
-    const resp = await fetch('contents/manifest.json');
+    const resp = await fetch('/contents/manifest.json');
     if (resp.ok) {
       const data = await resp.json();
       list = (data.stickers||[]).map((p,idx)=>({src:p, n: idx+1}));

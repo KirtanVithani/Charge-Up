@@ -286,12 +286,12 @@
   function render(){
     const filter = readHash();
     grid.className = 'grid';
-    grid.innerHTML = '';
+  grid.innerHTML = '';
     const list = filter === 'all' ? withNumbers : withNumbers.filter(it => it.category === filter);
     list.forEach(it => {
       const card = document.createElement('div');
       card.className = 'card';
-      const img = document.createElement('img');
+    const img = document.createElement('img');
       img.className = 'thumb';
       img.loading = 'lazy';
       img.src = buildSrc(it.dir, it.name);
@@ -325,7 +325,7 @@
   }
 
   // Add one simple, ASCII-only test asset to ensure visibility on deploys
-  manifest.push({ dir: 'contents', name: 'images.jpeg', category: 'others' });
+  manifest.push({ dir: '/contents', name: 'images.jpeg', category: 'others' });
 
   window.addEventListener('hashchange', () => {
     try { render(); } catch (err) { console.error(err); }

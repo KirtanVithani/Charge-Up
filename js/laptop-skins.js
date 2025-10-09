@@ -11,7 +11,7 @@
     // Load both manifests and merge (JSON + JS fallback/supplement)
     async function loadFromJson(){
       try {
-        const resp = await fetch('contents/manifest.json', { cache: 'no-store' });
+        const resp = await fetch('/contents/manifest.json', { cache: 'no-store' });
         if (!resp.ok) return [];
         const data = await resp.json();
         return Array.isArray(data.laptopSkins) ? data.laptopSkins : (data.laptopSkinImages || []);
@@ -31,7 +31,7 @@
     const list = rawList
       .filter(Boolean)
       .filter(p => /\.jpe?g$/i.test(p))
-      .map(p => p.startsWith('contents/') ? p : `contents/${p}`)
+      .map(p => p.startsWith('/contents/') ? p : `/contents/${p}`)
       .filter(p => /contents\/Laptop Skins\//i.test(p));
     return Array.from(new Set(list));
   }
