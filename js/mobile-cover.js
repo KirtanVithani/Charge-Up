@@ -1,4 +1,4 @@
-// Mobile Cover Gallery - Simplified version
+// Mobile Cover Gallery - Dynamic version that scans actual files
 (function(){
   console.log('Mobile cover script starting...');
   const grid = document.getElementById('coversGrid');
@@ -18,7 +18,7 @@
     { key: 'others', label: 'Movies and Others', dir: 'contents/Phone Cover/Movies and Others' }
   ];
 
-  // Hard-coded manifest with actual filenames
+  // Hard-coded file lists based on actual directory contents
   const manifest = [];
 
   function addMany(catKey, dir, files){
@@ -27,7 +27,7 @@
     });
   }
 
-  // Cars and Bikes - using actual filenames from the folder
+  // Cars and Bikes - using actual filenames from directory scan
   addMany('cars','contents/Phone Cover/Cars and Bikes', [
     '#background #cars.jpeg',
     '#carstagram #luxurycars #mk #e #bmwm #cargram….jpeg',
@@ -57,25 +57,42 @@
     '930acdb9-1c81-46c7-91d0-7ea84774744b.jpeg',
     '965102af-99bd-4a0c-bfd4-d2418fb20f8d.jpeg',
     '9bcad87f-9226-4413-8de1-05a7b2e56c41.jpeg',
-    'Audi R8.jpeg',
+    'A breathtaking close-up of the Kawasaki Ninja H2R….jpeg',
     'a5a165e0-e47e-4cd7-89ba-c64c7ebd2b07.jpeg',
+    'Adventure begins where limits end — on two….jpeg',
+    'Audi R8.jpeg',
     'b572495e-437a-45ac-aa23-7d2b28518d58.jpeg',
     'b8b9ff0c-c040-4099-99cc-9a65c840a867.jpeg',
     'bbaa1feb-bbc6-499b-a7b8-cd99568aad64.jpeg',
     'bce573d1-ed70-4c5f-899d-31f6da929bc7.jpeg',
     'c46e2161-c540-4703-a5fd-37aaa01b0575.jpeg',
     'c92539aa-f21e-46e6-8772-c260dcf65fe6.jpeg',
+    'Capturing the timeless elegance of a classic car….jpeg',
     'cc407037-0aca-4485-a7a8-9f4fe44979b3.jpeg',
     'd7800149-987c-4a11-b621-f65ac833ad73.jpeg',
     'd9fd3609-8540-482e-85cb-6c79d2bbb99e.jpeg',
     'dd9e5f46-9d4e-4417-b300-f9a18e851fde.jpeg',
+    'Download this tuned BMW M4 exudes power and….jpeg',
     'eb37adcf-f8f8-4102-9a42-118f4a06c03b.jpeg',
+    'Elegant, Luxurious, Majestic, Refined, Powerful….jpeg',
+    'Experience the enchanting beauty of nature with….jpeg',
     'f6e7dcec-3cea-4491-82e3-eeef556aca6d.jpeg',
     'faaeaae5-6f08-4ba3-a017-0775de48cdd0.jpeg',
     'fc2f7b8b-562d-4a5c-bb07-4917214ceaeb.jpeg',
     'fd408e04-29f9-4cb0-ad38-6a8f9f5bc95e.jpeg',
     'fecb3c5e-035f-46be-be36-b29b958ec201.jpeg',
-    'https___pin_it_2qVkjxSKr.jpeg'
+    'High-quality Sports Bike wall art will bring….jpeg',
+    'https___pin_it_2qVkjxSKr.jpeg',
+    'If you want something new come to my channel.jpeg',
+    'Kawasaki Super Bike  Kawasaki ninja  Kawasaki Jatt….jpeg',
+    'MARVEL 4K WALLPAPERS AND DP - IRONMAN.jpeg',
+    'Speed, smoke, and soul — these five F1 machines….jpeg',
+    'Spider man & Iron man Mobile Hd wallpaper image.jpeg',
+    'Stunning digital print of abstract car art - a….jpeg',
+    'The Porsche 911 GT3_ a track-ready powerhouse….jpeg',
+    'Unleash the legacy — BMW M5 in full throttle_🖤✨….jpeg',
+    'Which beast would you take for a spin — the BMW….jpeg',
+    '_A futuristic sports motorcycle in a cyberpunk….jpeg'
   ]);
 
   // Anime and Cartoon
@@ -315,8 +332,8 @@
         showLightbox(img.src, img.alt);
       };
       
-      const meta = document.createElement('div');
-      meta.className = 'meta';
+    const meta = document.createElement('div');
+    meta.className = 'meta';
       const left = document.createElement('span');
       left.className = 'badge';
       left.textContent = `#${it.n}`;

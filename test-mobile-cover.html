@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Mobile Cover - Charge Up</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .debug-info {
+            background: #f0f0f0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div data-include="navbar"></div>
+    <main class="container py">
+        <h1 class="page-title">Test Mobile Cover</h1>
+        <div class="debug-info" id="debugInfo">Loading...</div>
+        <div id="coversGrid" class="grid"></div>
+    </main>
+    <footer class="site-footer"><div class="container">© <span id="yr"></span> Charge Up</div></footer>
+    <script src="js/common.js"></script>
+    <script>
+        // Test a few specific images first
+        const testImages = [
+            'contents/Phone Cover/Cars and Bikes/Audi R8.jpeg',
+            'contents/Phone Cover/Anime and Cartoon/Kamado Tanjiro Sun Hashira.jpeg',
+            'contents/Phone Cover/Marvel/Instagram.jpeg',
+            'contents/Phone Cover/Natural/065bdd5a-e753-440f-b5a1-522b169aea8d.jpeg',
+            'contents/Phone Cover/Spiritual/Mahadev, Shivling, Shivling In Water.jpeg'
+        ];
+        
+        const debugInfo = document.getElementById('debugInfo');
+        const grid = document.getElementById('coversGrid');
+        
+        debugInfo.innerHTML = 'Testing image loading...<br>';
+        
+        testImages.forEach((src, index) => {
+            const img = new Image();
+            img.onload = function() {
+                debugInfo.innerHTML += `✅ Image ${index + 1} loaded: ${src}<br>`;
+                
+                // Add to grid
+                const card = document.createElement('div');
+                card.className = 'card';
+                const imgEl = document.createElement('img');
+                imgEl.className = 'thumb';
+                imgEl.src = src;
+                imgEl.alt = `Test ${index + 1}`;
+                imgEl.style.cursor = 'pointer';
+                card.appendChild(imgEl);
+                grid.appendChild(card);
+            };
+            img.onerror = function() {
+                debugInfo.innerHTML += `❌ Image ${index + 1} failed: ${src}<br>`;
+            };
+            img.src = src;
+        });
+    </script>
+    <script src="js/mobile-cover.js"></script>
+</body>
+</html>
