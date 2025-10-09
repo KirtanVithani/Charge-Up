@@ -220,8 +220,43 @@
     'Mahadev, Shivling, Shivling In Water.jpeg'
   ]);
 
-  // Movies and Others (empty for now)
-  addMany('others','contents/Phone Cover/Movies and Others', []);
+  // Movies and Others
+  addMany('others','contents/Phone Cover/Movies and Others', [
+    '#JackSparrow  #CaptainJackSparrow  #JohnnyDepp….jpg',
+    '#codm.jpg',
+    '0fac6bfe-a759-4ee0-bc00-6d4ffdc4e8a8.jpg',
+    '144c067e-8fc3-4939-b90c-801ec68f2883.jpg',
+    '2f96090d-9fdf-4f08-b5d6-d7623b1b8d42.jpg',
+    '7258bff8-c508-4e76-822d-c6022deccfe6.jpg',
+    '7ee24744-d971-41dd-be5b-f60be8d2e597.jpg',
+    '8643368b-5e60-435e-b4c9-45cfec30a745.jpg',
+    'A fan portrait of the legendary Indiana Jones in….jpg',
+    'Explore the fusion of timeless cinema and urban….jpg',
+    'John Wick (1).jpg',
+    'John Wick - a fan poster.jpg',
+    'John Wick.jpg',
+    'Open For Commission Dm Me Follow Me on Tiktok….jpg',
+    'Red ninja live wallpaper.jpg',
+    'Ronaldo x Onepiece.jpg',
+    'The Show Goes On! - Krzysztof Domaradzki #PiyushGamingWorld.jpg',
+    'Vibrant and rebellious, this fan-made portrait of….jpg',
+    'Walter White - Heisenberg - SAIED M_ LABBAN.jpg',
+    'b8d84a83-dcb8-43b9-85f8-a498be1bcb41.jpg',
+    'c424b3d0-a308-45c8-a08c-d5748f63cdb4.jpg',
+    'download (1).jpg',
+    'download (10).jpg',
+    'download (2).jpg',
+    'download (3).jpg',
+    'download (4).jpg',
+    'download (5).jpg',
+    'download (6).jpg',
+    'download (7).jpg',
+    'download (8).jpg',
+    'download (9).jpg',
+    'download.jpg',
+    'f5acefb4-16b0-45b1-960c-55a0d84f6d74.jpg',
+    'john wick wallpaper.jpg'
+  ]);
 
   // Add PDF preview images
   manifest.push({ dir: 'contents/Phone Cover', name: 'image1.jpg', category: 'others' });
