@@ -20,7 +20,7 @@
 
   function addMany(catKey, dir, files){
     files.forEach(name => {
-      manifest.push({ src: `${dir}/${name}`, category: catKey });
+      manifest.push({ dir, name, category: catKey });
     });
   }
 
@@ -209,7 +209,7 @@
     'Eagle flying wildlife animal nature_ _ premium….jpeg',
     'Give your device a magical makeover with our….jpeg',
     'Looking to update your phone for the season_….jpeg',
-    'Nature's raw power captured! ⚡️ Witness the storm….jpeg',
+    'Nature\'s raw power captured! ⚡️ Witness the storm….jpeg',
     'Pin by John Emery on My Dream Place♥️ _ Landscape….jpeg',
     'Pin by Tudy on Pittura _ Cute fall wallpaper, Cute….jpeg',
     'Product Description_ Indulge in the allure of the….jpeg'
@@ -258,14 +258,23 @@
 
   // Fallback: also include two PDF preview images if present
   const extra = [
-    { src: 'contents/Phone Cover/image1.jpg', category: 'others' },
-    { src: 'contents/Phone Cover/image2.jpg', category: 'others' }
+    { dir: 'contents/Phone Cover', name: 'image1.jpg', category: 'others' },
+    { dir: 'contents/Phone Cover', name: 'image2.jpg', category: 'others' }
   ];
   extra.forEach(e => manifest.push(e));
 
   // Global numbering across all items
   let globalIndex = 1;
   const withNumbers = manifest.map(m => ({...m, n: globalIndex++ }));
+
+  function encodePath(path){
+    // Encode each path segment to handle spaces and special characters like '#'
+    return path.split('/').map(encodeURIComponent).join('/');
+  }
+
+  function buildSrc(dir, name){
+    return `${encodePath(dir)}/${encodeURIComponent(name)}`;
+  }
 
   function readHash(){
     const h = (location.hash || '').replace('#','').trim().toLowerCase();
@@ -284,7 +293,7 @@
       const img = document.createElement('img');
       img.className = 'thumb';
       img.loading = 'lazy';
-      img.src = it.src;
+      img.src = buildSrc(it.dir, it.name);
       img.alt = `${it.category} #${it.n}`;
       img.onerror = function(){ img.style.display = 'none'; };
       const meta = document.createElement('div');
