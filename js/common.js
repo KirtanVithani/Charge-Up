@@ -12,7 +12,6 @@
       <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">☰ <span class="nav-label">Menu</span></button>
       <nav class="menu" id="mainMenu">
         <a href="index.html">Home</a>
-        <a href="stickers.html">Stickers</a>
         <a href="embossed-mobile-skins.html">Embossed Mobile Skins</a>
         <div class="menu-dropdown">
           <button class="menu-parent">Laptop Skins ▾</button>
