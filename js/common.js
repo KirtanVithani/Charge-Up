@@ -106,3 +106,23 @@ document.addEventListener('click', (e) => {
 });
 
 
+// Add global footer contact info and current year
+document.addEventListener('DOMContentLoaded', () => {
+  const footerContainer = document.querySelector('.site-footer .container');
+  if (!footerContainer) return;
+
+  // Ensure current year is set if element exists
+  const yearEl = document.getElementById('yr');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  // Append contact numbers once
+  if (!footerContainer.querySelector('.footer-contact')) {
+    const contact = document.createElement('div');
+    contact.className = 'footer-contact';
+    contact.innerHTML = 'Contact: <a href="tel:7622007999">7622007999</a> | <a href="tel:9714644571">9714644571</a>';
+    footerContainer.appendChild(contact);
+  }
+});
+
