@@ -95,7 +95,8 @@
     'The Porsche 911 GT3_ a track-ready powerhouse….jpeg',
     'Unleash the legacy — BMW M5 in full throttle_🖤✨….jpeg',
     'Which beast would you take for a spin — the BMW….jpeg',
-    '_A futuristic sports motorcycle in a cyberpunk….jpeg'
+    '_A futuristic sports motorcycle in a cyberpunk….jpeg',
+    'IMG_1835.JPG'
   ]);
 
   // Anime and Cartoon - Complete list
@@ -146,7 +147,11 @@
     'Pokémon legends arceus God 🏔️ wallpaper 4K….jpeg',
     'Poplar Anime Characters in Peace _ _  🧠 AI….jpeg',
     'Step into the storm with this electrifying anime… (1).jpeg',
-    'Step into the storm with this electrifying anime….jpeg'
+    'Step into the storm with this electrifying anime….jpeg',
+    'IMG_1829.JPG',
+    'anime 1.jpg',
+    'anime.jpg',
+    'anime2.jpg'
   ]);
 
   // Marvel - Complete list
@@ -267,35 +272,41 @@
     '8643368b-5e60-435e-b4c9-45cfec30a745.jpg',
     'A fan portrait of the legendary Indiana Jones in….jpg',
     'Explore the fusion of timeless cinema and urban….jpg',
-    'John Wick (1).jpg',
     'John Wick - a fan poster.jpg',
-    'John Wick.jpg',
     'Open For Commission Dm Me Follow Me on Tiktok….jpg',
     'Red ninja live wallpaper.jpg',
-    'Ronaldo x Onepiece.jpg',
-    'The Show Goes On! - Krzysztof Domaradzki #PiyushGamingWorld.jpg',
+    
     'Vibrant and rebellious, this fan-made portrait of….jpg',
     'Walter White - Heisenberg - SAIED M_ LABBAN.jpg',
     'b8d84a83-dcb8-43b9-85f8-a498be1bcb41.jpg',
     'c424b3d0-a308-45c8-a08c-d5748f63cdb4.jpg',
-    'download (1).jpg',
+    
     'download (10).jpg',
     'download (2).jpg',
-    'download (3).jpg',
-    'download (4).jpg',
-    'download (5).jpg',
-    'download (6).jpg',
-    'download (7).jpg',
+    
     'download (8).jpg',
     'download (9).jpg',
-    'download.jpg',
+    
     'f5acefb4-16b0-45b1-960c-55a0d84f6d74.jpg',
-    'john wick wallpaper.jpg'
+    'john wick wallpaper.jpg',
+    '4.JPG',
+    'IMG_1833.JPG',
+    'marvel.jpg',
+    'movie 1.jpg',
+    'movie 2.JPG',
+    'movie 3.JPG',
+    'movie 4.JPG',
+    'movie.jpg',
+    'movies.jpg',
+    'sports 1.jpg',
+    'sports 2.jpg',
+    'sports 3.jpg',
+    'sports.jpg'
   ]);
 
   // Add PDF preview images
-  manifest.push({ dir: 'contents/Phone Cover', name: 'image1.jpg', category: 'others' });
-  manifest.push({ dir: 'contents/Phone Cover', name: 'image2.jpg', category: 'others' });
+  manifest.push({ dir: 'contents/Phone Cover', name: 'image1.jpeg', category: 'others' });
+  manifest.push({ dir: 'contents/Phone Cover', name: 'image2.jpeg', category: 'others' });
 
   // Global numbering across all items
   let globalIndex = 1;
